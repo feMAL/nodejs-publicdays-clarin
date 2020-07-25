@@ -1,0 +1,21 @@
+{
+  "name": "clarin-backend",
+  "version": "1.0.0",
+  "description": "Back-End para el manejo de feriados.",
+  "main": "index.js",
+  "scripts": {
+    "start" : "node src/index.js",
+    "script": "node lib/script-publicdays.js",
+    "dev"   : "nodemon src"
+  },
+  "author": "Fernando Malgor",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.25"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
