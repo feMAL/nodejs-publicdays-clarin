@@ -40,9 +40,6 @@ npm run start
  * NodeJS
  * Express
  * Mongo
- * Angular
- * Material
- * Flex-Box
 
 ## Implementación
 
