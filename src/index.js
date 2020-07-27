@@ -10,7 +10,7 @@ let url = `mongodb://${dbConfig.db_url}:${dbConfig.db_port}/${dbConfig.db_name}`
 let port  = appConfig.app_port; 
 
 if(ENV === 'production'){
-    url = `mongodb://${dbConfig.db_username}:${dbConfig.db_password}@${dbConfig.db_url}/${dbConfig.db_name}`;
+    url = `mongodb+srv://${dbConfig.db_username}:${dbConfig.db_password}@${dbConfig.db_url}/${dbConfig.db_name}`;
 }
 
 mongoose.Promise = global.Promise;
