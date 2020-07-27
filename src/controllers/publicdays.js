@@ -35,11 +35,9 @@ const updatePublicDay = ( req, res ) => {
     let params      = req.body;
     
     idPublicDay = req.params.id;
-        
-    if(!idPublicDay){
-        return res.status(400).send({ _ok: false, status:'error', message: 'La request enviada no es correcta' });
-    }
-    if(validInputs(params)){
+    delete params._id;
+
+    if(!validInputs(params)){
         return res.status(400).send({ _ok: false, status:'error', message: 'La request enviada no es correcta' });
     }
     if(idPublicDay.trim().length==24){
@@ -49,8 +47,12 @@ const updatePublicDay = ( req, res ) => {
             }
             if(!feriadoToUpdate){
                 return res.status(404).send({ _ok: false, status:'error', message: 'No se ha encontrado el feriado solicitado.' });
+            }else {
+                return res.status(200).send({ _ok: true, status: 'ok', feriado: feriadoToUpdate });
             }
         });
+    }else{
+        return res.status(400).send({ _ok: false, status:'error', message: 'La request enviada no es correcta' });
     }
 }
 
@@ -59,10 +61,11 @@ const validInputs = (params) => {
     let paramsToValidate = params;
     let tipo = [ 'inamovible', 'trasladable', 'nolaborable', 'puente' ];
 
-    paramsToValidate.motivo.trim() ? status = true : status = false ;
+
+    paramsToValidate.motivo != null ? status = true : status = false ;
     tipo.indexOf(paramsToValidate.tipo.trim().toLowerCase()) && status === true ? status = true : status = false ;
     paramsToValidate.dia <= 31  && paramsToValidate.dia > 0  && status === true ? status = true : status = false ;
-    paramsToValidate.mes <= 12  && paramsToValidate.dia > 0  && status === true ? status = true : status = false ;
+    paramsToValidate.mes <= 12  && paramsToValidate.mes > 0  && status === true ? status = true : status = false ;
     paramsToValidate.id  && status === true ? status= true : status = false ;
 
     return status;
