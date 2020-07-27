@@ -1,6 +1,6 @@
 # Feriados REST-API.
 
-_Desarrollado en JS._
+_Desarrollado en nodeJS_
 
 ## Funcionalidad
 
@@ -17,7 +17,7 @@ _El API contiene un script para solicitar todos los feriados del presente año_
 
 _El siguiente Script se encargará de obtener los objetos de la url_
 
-* [FERIADOS](http://nolaborables.com.ar/api/v2/feriados/[año]?incluir=opcional)
+* [http://nolaborables.com.ar](http://nolaborables.com.ar/api/v2/feriados/[año]?incluir=opcional)
 
 ```
 npm run script
@@ -31,6 +31,20 @@ npm run dev
 
 ### Ejecutar server sobre un sistema productivo
 
+#### Setear las variables de entorno requeridas para el end-point
+
+ * PORT
+ * NODE_ENV = 'production'
+
+#### Setear las variables de entorno requeridas para la base de datos
+
+ * DB_URL
+ * DB_PORT
+ * DB_NAME
+ * DB_USER,
+ * DB_PASS,
+
+#### Comando de ejecucion.
 ```
 npm run start
 ```
